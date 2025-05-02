@@ -119,7 +119,7 @@ async def show_cart(callback: CallbackQuery, state: FSMContext):
 
 """
     
-"
+"text += f"{item['name']} — {qty} шт. = {price:,} сум\\n"
 "
 "
 "
