@@ -9,7 +9,7 @@ from aiogram.types import KeyboardButton, ReplyKeyboardMarkup, ReplyKeyboardRemo
 logging.basicConfig(level=logging.INFO)
 
 # Укажите токен вашего бота
-BOT_TOKEN = "YOUR_BOT_TOKEN_HERE"
+BOT_TOKEN = "8197970222:AAGotKTpT8t9ZSli6VbJKhPxNAWTKI2q7j8"
 
 # ID администратора, которому будет отправляться информация о заказе
 ADMIN_ID = 6497374401
