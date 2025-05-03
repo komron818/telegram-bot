@@ -93,7 +93,6 @@ async def handle_location(message: types.Message, state: FSMContext):
 @dp.message(OrderFSM.product)
 async def handle_product_selection(message: types.Message, state: FSMContext):
 
-k, [03.05.2025 13:58]
 product_text = message.text
     # Check if the selected text is a valid product
     if product_text not in PRODUCTS:
@@ -176,7 +175,6 @@ async def handle_quantity_or_action(message: types.Message, state: FSMContext):
         # Clear current product selection (not added to cart)
         await state.
 
-k, [03.05.2025 13:58]
 update_data(current_product_name=None, current_product_price=None, current_quantity=None)
         # Show product list again
         product_kb = ReplyKeyboardMarkup(resize_keyboard=True)
