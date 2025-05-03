@@ -98,12 +98,10 @@ async def show_cart(callback: types.CallbackQuery):
         await callback.message.answer("Ваша корзина пуста.")
         return
     total = 0
-    text = "<b>Корзина:</b>
-"
+    text = "<b>Корзина:</b>"
     for item, qty in items:
         price = products[item] * qty
-        text += f"{item} — {qty} шт. = {price:,} сум
-"
+        text += f"{item} — {qty} шт. = {price:,} сум"
         total += price
     text += f"
 <b>Общая сумма: {total:,} сум</b>"
