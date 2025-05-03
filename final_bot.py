@@ -1,4 +1,3 @@
-
 # final_bot.py
 import logging
 from aiogram import Bot, Dispatcher, types
@@ -92,8 +91,7 @@ async def handle_location(message: types.Message, state: FSMContext):
 # Product selection handler
 @dp.message(OrderFSM.product)
 async def handle_product_selection(message: types.Message, state: FSMContext):
-
-product_text = message.text
+    product_text = message.text
     # Check if the selected text is a valid product
     if product_text not in PRODUCTS:
         await message.answer("Пожалуйста, выберите товар, используя кнопки.")
@@ -173,9 +171,7 @@ async def handle_quantity_or_action(message: types.Message, state: FSMContext):
     # If user wants to go back to product selection without adding
     if user_input == "Назад":
         # Clear current product selection (not added to cart)
-        await state.
-
-update_data(current_product_name=None, current_product_price=None, current_quantity=None)
+        await state.update_data(current_product_name=None, current_product_price=None, current_quantity=None)
         # Show product list again
         product_kb = ReplyKeyboardMarkup(resize_keyboard=True)
         for item in PRODUCTS.keys():
@@ -246,6 +242,6 @@ async def handle_checkout(message: types.Message, state: FSMContext):
         await message.answer("Пожалуйста, подтвердите заказ или вернитесь назад с помощью кнопок.")
 
 # Start the bot
-if name == "__main__":
+if __name__ == "__main__":
     import asyncio
     asyncio.run(dp.start_polling(bot))
