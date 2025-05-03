@@ -8,7 +8,7 @@ from aiogram.utils.keyboard import InlineKeyboardBuilder
 import asyncio
 import logging
 
-TOKEN = "YOUR_BOT_TOKEN"
+TOKEN = "8197970222:AAGotKTpT8t9ZSli6VbJKhPxNAWTKI2q7j8"
 ADMIN_ID = 6497374401
 
 bot = Bot(token=TOKEN, parse_mode=ParseMode.HTML)
