@@ -103,8 +103,7 @@ async def show_cart(callback: types.CallbackQuery):
         price = products[item] * qty
         text += f"{item} — {qty} шт. = {price:,} сум"
         total += price
-    text += f"
-<b>Общая сумма: {total:,} сум</b>"
+   text += f"<b>Общая сумма: {total:,} сум</b>"
     kb = InlineKeyboardMarkup(inline_keyboard=[[
         InlineKeyboardButton(text="Подтвердить", callback_data="confirm"),
         InlineKeyboardButton(text="Назад", callback_data="back")
