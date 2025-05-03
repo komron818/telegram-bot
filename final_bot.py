@@ -5,7 +5,6 @@ from aiogram.fsm.state import State, StatesGroup
 from aiogram.fsm.context import FSMContext
 from aiogram.types import Message
 from aiogram.utils.keyboard import InlineKeyboardBuilder
-from aiogram import types
 import asyncio
 import logging
 
@@ -14,7 +13,6 @@ ADMIN_ID = 6497374401
 
 bot = Bot(token=TOKEN, parse_mode=ParseMode.HTML)
 dp = Dispatcher()
-
 router = Router()
 dp.include_router(router)
 
@@ -98,12 +96,12 @@ async def show_cart(callback: types.CallbackQuery):
         await callback.message.answer("Ваша корзина пуста.")
         return
     total = 0
-    text = "<b>Корзина:</b>"
+    text = "<b>Корзина:</b>\n"
     for item, qty in items:
         price = products[item] * qty
-        text += f"{item} — {qty} шт. = {price:,} сум"
+        text += f"{item} — {qty} шт. = {price:,} сум\n"
         total += price
-   text += f"<b>Общая сумма: {total:,} сум</b>"
+    text += f"\n<b>Общая сумма: {total:,} сум</b>"
     kb = InlineKeyboardMarkup(inline_keyboard=[[
         InlineKeyboardButton(text="Подтвердить", callback_data="confirm"),
         InlineKeyboardButton(text="Назад", callback_data="back")
@@ -114,14 +112,10 @@ async def show_cart(callback: types.CallbackQuery):
 async def confirm_order(callback: types.CallbackQuery):
     items = user_orders.get(callback.from_user.id, [])
     data = user_data.get(callback.from_user.id, {})
-    text = "Новый заказ:
-"
+    text = "Новый заказ:\n"
     for item, qty in items:
-        text += f"{item} — {qty} шт.
-"
-    text += f"
-Телефон: {data.get('phone')}
-"
+        text += f"{item} — {qty} шт.\n"
+    text += f"\nТелефон: {data.get('phone')}\n"
     loc = data.get("location")
     if loc:
         text += f"Локация: https://www.google.com/maps?q={loc.latitude},{loc.longitude}"
